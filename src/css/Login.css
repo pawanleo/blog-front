@@ -1,0 +1,13 @@
+.login{
+    margin-top: 3em;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.divInputs{
+    padding: 20px;
+    border-radius: 6px;
+}
