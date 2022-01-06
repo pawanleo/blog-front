@@ -1,8 +1,8 @@
 
 import React, { useState,useEffect  } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../../css/Post.css'
-import axios from '../../interceptors/customAxios'
+import axios from '../interceptors/customAxios';
+import "../css/Posts.css";
 
 
 const EditPost = () => {
@@ -27,9 +27,10 @@ const EditPost = () => {
     const updatePost = ()=>{
       
       
-        axios.put('/blog/updatepost',editData).then((res)=>{
+        axios.put('http://localhost:9001/api/blog/updatepost',editData).then((res)=>{
 
             setMsg(res.data.message)
+            navigate('/write')
 
         }).catch(err=>console.log(err))
     }
@@ -40,7 +41,7 @@ const EditPost = () => {
     return (
         <div className='container-fluid editpost'>
 
-            <div className='col-md-6 col-10 bg-light divInputs'>
+            <div>
                 <h3>Update Post</h3>
                 <hr />
 
@@ -79,7 +80,7 @@ const EditPost = () => {
                 <button onClick={updatePost} type="click" class="btn btn-primary">
                     Update
                 </button>
-                <button onClick={() => navigate('/dashboard')} type="click" class="btn btn-danger ms-3">
+                <button onClick={() => navigate('/write')} type="click" class="btn btn-danger ms-3">
                     Cancel
                 </button>
 

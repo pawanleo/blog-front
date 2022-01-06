@@ -1,9 +1,7 @@
-
-import React, { useState,useEffect  } from 'react';
+import React,{ useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../../css/Post.css'
-import axios from '../../interceptors/customAxios';
-
+import axios from '../interceptors/customAxios';
+import "../css/Posts.css";
 
 const AddPost = () => {
 
@@ -29,7 +27,7 @@ const AddPost = () => {
     // when button click
     const addPost = ()=>{
        
-        axios.post('/blog/addpost',input).then((res)=>{
+        axios.post('http://localhost:9001/api/blog/addpost',input).then((res)=>{
             
             setMsg(res.data.message)
 
@@ -39,7 +37,7 @@ const AddPost = () => {
     return (
         <div className='container-fluid addpost'>
 
-            <div className='col-md-6 col-10 bg-light divInputs'>
+            <div className=''>
                 <h3>Add Post</h3>
                 <hr />
 
@@ -70,7 +68,7 @@ const AddPost = () => {
                 <button onClick={addPost} type="click" class="btn btn-primary">
                     Add
                 </button>
-                <button onClick={() => navigate('/dashboard')} type="click" class="btn btn-danger ms-3">
+                <button onClick={() => navigate('/')} type="click" class="btn btn-danger ms-3">
                     Cancel
                 </button>
 
